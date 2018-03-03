@@ -1,0 +1,70 @@
+{% load staticfiles bootstrap i18n %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <link rel="shortcut icon" href="{% static 'chatbot_tutorial/favicon.ico' %}" type="image/x-icon">
+        <link rel="icon" href="{% static 'chatbot_tutorial/favicon.ico' %}" type="image/x-icon">
+
+        <link rel="stylesheet" href="{% static 'chatbot_tutorial/bootstrap/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'chatbot_tutorial/css/chat.css' %}">
+       
+        <link href="{% static 'chatbot_tutorial/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <base target="_blank"/>
+        <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" />
+    <script type="text/javascript">
+        var USERS_LIST_JSON_URL = '{% url "user_tracking_json" %}';
+        
+
+        $(document).ready(function() {
+            var dt_table = $('.datatable').dataTable({
+                "processing": true,
+                "serverSide": true,
+                "ajax": USERS_LIST_JSON_URL,
+                "searching": false
+            });
+        });
+    </script>
+        <title>Websockets Bot Login</title>
+
+    </head>
+    <body>
+        <!-- Wrap all page content here -->
+
+        <div id="wrap" class="BotMainDiv" ng-controller="ChatCtrl">
+            <!-- Begin page content -->
+            <div class="container-fluid" id="body-container" style="border-bottom: #eee 1px solid;">
+               
+                <div  id="sub-body-container">
+                    
+                    <div  id="messages-container">
+                        <table class="datatable table table-striped">
+                            <thead>
+                                <th>id</th>
+                                <th>user</th>
+                                <th>button type</th>
+                                <th>count</th>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                        
+                    </div>
+                    <div class="error-notification alert alert-info" style="display:none;"></div>
+                    
+                    
+                </div>
+            </div>
+        
+          </div>
+        
+     </body>
+</html>
