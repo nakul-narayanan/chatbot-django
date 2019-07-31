@@ -11,7 +11,7 @@ incremental==16.10.1
 oauthlib==2.0.1
 packaging==16.8
 pyparsing==2.2.0
-requests==2.13.0
+requests==2.20.0
 requests-oauthlib==0.8.0
 six==1.10.0
 Twisted==17.1.0
